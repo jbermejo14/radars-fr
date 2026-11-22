@@ -1,0 +1,709 @@
+[
+  {
+    "code": "01",
+    "name": "Ain",
+    "regionSlug": "auvergne-rhone-alpes",
+    "regionName": "Auvergne-Rhône-Alpes",
+    "radarCount": 28
+  },
+  {
+    "code": "02",
+    "name": "Aisne",
+    "regionSlug": "hauts-de-france",
+    "regionName": "Hauts-de-France",
+    "radarCount": 28
+  },
+  {
+    "code": "2A",
+    "name": "Corse-du-Sud",
+    "regionSlug": "corse",
+    "regionName": "Corse",
+    "radarCount": 14
+  },
+  {
+    "code": "2B",
+    "name": "Haute-Corse",
+    "regionSlug": "corse",
+    "regionName": "Corse",
+    "radarCount": 13
+  },
+  {
+    "code": "03",
+    "name": "Allier",
+    "regionSlug": "auvergne-rhone-alpes",
+    "regionName": "Auvergne-Rhône-Alpes",
+    "radarCount": 31
+  },
+  {
+    "code": "04",
+    "name": "Alpes-de-Haute-Provence",
+    "regionSlug": "provence-alpes-cote-d-azur",
+    "regionName": "Provence-Alpes-Côte d'Azur",
+    "radarCount": 16
+  },
+  {
+    "code": "05",
+    "name": "Hautes-Alpes",
+    "regionSlug": "provence-alpes-cote-d-azur",
+    "regionName": "Provence-Alpes-Côte d'Azur",
+    "radarCount": 16
+  },
+  {
+    "code": "06",
+    "name": "Alpes-Maritimes",
+    "regionSlug": "provence-alpes-cote-d-azur",
+    "regionName": "Provence-Alpes-Côte d'Azur",
+    "radarCount": 52
+  },
+  {
+    "code": "07",
+    "name": "Ardèche",
+    "regionSlug": "auvergne-rhone-alpes",
+    "regionName": "Auvergne-Rhône-Alpes",
+    "radarCount": 23
+  },
+  {
+    "code": "08",
+    "name": "Ardennes",
+    "regionSlug": "grand-est",
+    "regionName": "Grand Est",
+    "radarCount": 22
+  },
+  {
+    "code": "09",
+    "name": "Ariège",
+    "regionSlug": "occitanie",
+    "regionName": "Occitanie",
+    "radarCount": 18
+  },
+  {
+    "code": "10",
+    "name": "Aube",
+    "regionSlug": "grand-est",
+    "regionName": "Grand Est",
+    "radarCount": 34
+  },
+  {
+    "code": "11",
+    "name": "Aude",
+    "regionSlug": "occitanie",
+    "regionName": "Occitanie",
+    "radarCount": 19
+  },
+  {
+    "code": "12",
+    "name": "Aveyron",
+    "regionSlug": "occitanie",
+    "regionName": "Occitanie",
+    "radarCount": 14
+  },
+  {
+    "code": "13",
+    "name": "Bouches-du-Rhône",
+    "regionSlug": "provence-alpes-cote-d-azur",
+    "regionName": "Provence-Alpes-Côte d'Azur",
+    "radarCount": 82
+  },
+  {
+    "code": "14",
+    "name": "Calvados",
+    "regionSlug": "normandie",
+    "regionName": "Normandie",
+    "radarCount": 25
+  },
+  {
+    "code": "15",
+    "name": "Cantal",
+    "regionSlug": "auvergne-rhone-alpes",
+    "regionName": "Auvergne-Rhône-Alpes",
+    "radarCount": 17
+  },
+  {
+    "code": "16",
+    "name": "Charente",
+    "regionSlug": "nouvelle-aquitaine",
+    "regionName": "Nouvelle-Aquitaine",
+    "radarCount": 48
+  },
+  {
+    "code": "17",
+    "name": "Charente-Maritime",
+    "regionSlug": "nouvelle-aquitaine",
+    "regionName": "Nouvelle-Aquitaine",
+    "radarCount": 32
+  },
+  {
+    "code": "18",
+    "name": "Cher",
+    "regionSlug": "centre-val-de-loire",
+    "regionName": "Centre-Val de Loire",
+    "radarCount": 29
+  },
+  {
+    "code": "19",
+    "name": "Corrèze",
+    "regionSlug": "nouvelle-aquitaine",
+    "regionName": "Nouvelle-Aquitaine",
+    "radarCount": 23
+  },
+  {
+    "code": "21",
+    "name": "Côte-d'Or",
+    "regionSlug": "bourgogne-franche-comte",
+    "regionName": "Bourgogne-Franche-Comté",
+    "radarCount": 30
+  },
+  {
+    "code": "22",
+    "name": "Côtes-d'Armor",
+    "regionSlug": "bretagne",
+    "regionName": "Bretagne",
+    "radarCount": 29
+  },
+  {
+    "code": "23",
+    "name": "Creuse",
+    "regionSlug": "nouvelle-aquitaine",
+    "regionName": "Nouvelle-Aquitaine",
+    "radarCount": 14
+  },
+  {
+    "code": "24",
+    "name": "Dordogne",
+    "regionSlug": "nouvelle-aquitaine",
+    "regionName": "Nouvelle-Aquitaine",
+    "radarCount": 27
+  },
+  {
+    "code": "25",
+    "name": "Doubs",
+    "regionSlug": "bourgogne-franche-comte",
+    "regionName": "Bourgogne-Franche-Comté",
+    "radarCount": 30
+  },
+  {
+    "code": "26",
+    "name": "Drôme",
+    "regionSlug": "auvergne-rhone-alpes",
+    "regionName": "Auvergne-Rhône-Alpes",
+    "radarCount": 27
+  },
+  {
+    "code": "27",
+    "name": "Eure",
+    "regionSlug": "normandie",
+    "regionName": "Normandie",
+    "radarCount": 44
+  },
+  {
+    "code": "28",
+    "name": "Eure-et-Loir",
+    "regionSlug": "centre-val-de-loire",
+    "regionName": "Centre-Val de Loire",
+    "radarCount": 38
+  },
+  {
+    "code": "29",
+    "name": "Finistère",
+    "regionSlug": "bretagne",
+    "regionName": "Bretagne",
+    "radarCount": 20
+  },
+  {
+    "code": "30",
+    "name": "Gard",
+    "regionSlug": "occitanie",
+    "regionName": "Occitanie",
+    "radarCount": 60
+  },
+  {
+    "code": "31",
+    "name": "Haute-Garonne",
+    "regionSlug": "occitanie",
+    "regionName": "Occitanie",
+    "radarCount": 50
+  },
+  {
+    "code": "32",
+    "name": "Gers",
+    "regionSlug": "occitanie",
+    "regionName": "Occitanie",
+    "radarCount": 22
+  },
+  {
+    "code": "33",
+    "name": "Gironde",
+    "regionSlug": "nouvelle-aquitaine",
+    "regionName": "Nouvelle-Aquitaine",
+    "radarCount": 48
+  },
+  {
+    "code": "34",
+    "name": "Hérault",
+    "regionSlug": "occitanie",
+    "regionName": "Occitanie",
+    "radarCount": 67
+  },
+  {
+    "code": "35",
+    "name": "Ille-et-Vilaine",
+    "regionSlug": "bretagne",
+    "regionName": "Bretagne",
+    "radarCount": 43
+  },
+  {
+    "code": "36",
+    "name": "Indre",
+    "regionSlug": "centre-val-de-loire",
+    "regionName": "Centre-Val de Loire",
+    "radarCount": 22
+  },
+  {
+    "code": "37",
+    "name": "Indre-et-Loire",
+    "regionSlug": "centre-val-de-loire",
+    "regionName": "Centre-Val de Loire",
+    "radarCount": 44
+  },
+  {
+    "code": "38",
+    "name": "Isère",
+    "regionSlug": "auvergne-rhone-alpes",
+    "regionName": "Auvergne-Rhône-Alpes",
+    "radarCount": 43
+  },
+  {
+    "code": "39",
+    "name": "Jura",
+    "regionSlug": "bourgogne-franche-comte",
+    "regionName": "Bourgogne-Franche-Comté",
+    "radarCount": 19
+  },
+  {
+    "code": "40",
+    "name": "Landes",
+    "regionSlug": "nouvelle-aquitaine",
+    "regionName": "Nouvelle-Aquitaine",
+    "radarCount": 31
+  },
+  {
+    "code": "41",
+    "name": "Loir-et-Cher",
+    "regionSlug": "centre-val-de-loire",
+    "regionName": "Centre-Val de Loire",
+    "radarCount": 23
+  },
+  {
+    "code": "42",
+    "name": "Loire",
+    "regionSlug": "auvergne-rhone-alpes",
+    "regionName": "Auvergne-Rhône-Alpes",
+    "radarCount": 26
+  },
+  {
+    "code": "43",
+    "name": "Haute-Loire",
+    "regionSlug": "auvergne-rhone-alpes",
+    "regionName": "Auvergne-Rhône-Alpes",
+    "radarCount": 29
+  },
+  {
+    "code": "44",
+    "name": "Loire-Atlantique",
+    "regionSlug": "pays-de-la-loire",
+    "regionName": "Pays de la Loire",
+    "radarCount": 51
+  },
+  {
+    "code": "45",
+    "name": "Loiret",
+    "regionSlug": "centre-val-de-loire",
+    "regionName": "Centre-Val de Loire",
+    "radarCount": 53
+  },
+  {
+    "code": "46",
+    "name": "Lot",
+    "regionSlug": "occitanie",
+    "regionName": "Occitanie",
+    "radarCount": 11
+  },
+  {
+    "code": "47",
+    "name": "Lot-et-Garonne",
+    "regionSlug": "nouvelle-aquitaine",
+    "regionName": "Nouvelle-Aquitaine",
+    "radarCount": 43
+  },
+  {
+    "code": "48",
+    "name": "Lozère",
+    "regionSlug": "occitanie",
+    "regionName": "Occitanie",
+    "radarCount": 9
+  },
+  {
+    "code": "49",
+    "name": "Maine-et-Loire",
+    "regionSlug": "pays-de-la-loire",
+    "regionName": "Pays de la Loire",
+    "radarCount": 34
+  },
+  {
+    "code": "50",
+    "name": "Manche",
+    "regionSlug": "normandie",
+    "regionName": "Normandie",
+    "radarCount": 28
+  },
+  {
+    "code": "51",
+    "name": "Marne",
+    "regionSlug": "grand-est",
+    "regionName": "Grand Est",
+    "radarCount": 36
+  },
+  {
+    "code": "52",
+    "name": "Haute-Marne",
+    "regionSlug": "grand-est",
+    "regionName": "Grand Est",
+    "radarCount": 34
+  },
+  {
+    "code": "53",
+    "name": "Mayenne",
+    "regionSlug": "pays-de-la-loire",
+    "regionName": "Pays de la Loire",
+    "radarCount": 21
+  },
+  {
+    "code": "54",
+    "name": "Meurthe-et-Moselle",
+    "regionSlug": "grand-est",
+    "regionName": "Grand Est",
+    "radarCount": 34
+  },
+  {
+    "code": "55",
+    "name": "Meuse",
+    "regionSlug": "grand-est",
+    "regionName": "Grand Est",
+    "radarCount": 14
+  },
+  {
+    "code": "56",
+    "name": "Morbihan",
+    "regionSlug": "bretagne",
+    "regionName": "Bretagne",
+    "radarCount": 29
+  },
+  {
+    "code": "57",
+    "name": "Moselle",
+    "regionSlug": "grand-est",
+    "regionName": "Grand Est",
+    "radarCount": 31
+  },
+  {
+    "code": "58",
+    "name": "Nièvre",
+    "regionSlug": "bourgogne-franche-comte",
+    "regionName": "Bourgogne-Franche-Comté",
+    "radarCount": 16
+  },
+  {
+    "code": "59",
+    "name": "Nord",
+    "regionSlug": "hauts-de-france",
+    "regionName": "Hauts-de-France",
+    "radarCount": 82
+  },
+  {
+    "code": "60",
+    "name": "Oise",
+    "regionSlug": "hauts-de-france",
+    "regionName": "Hauts-de-France",
+    "radarCount": 74
+  },
+  {
+    "code": "61",
+    "name": "Orne",
+    "regionSlug": "normandie",
+    "regionName": "Normandie",
+    "radarCount": 29
+  },
+  {
+    "code": "62",
+    "name": "Pas-de-Calais",
+    "regionSlug": "hauts-de-france",
+    "regionName": "Hauts-de-France",
+    "radarCount": 46
+  },
+  {
+    "code": "63",
+    "name": "Puy-de-Dôme",
+    "regionSlug": "auvergne-rhone-alpes",
+    "regionName": "Auvergne-Rhône-Alpes",
+    "radarCount": 33
+  },
+  {
+    "code": "64",
+    "name": "Pyrénées-Atlantiques",
+    "regionSlug": "nouvelle-aquitaine",
+    "regionName": "Nouvelle-Aquitaine",
+    "radarCount": 46
+  },
+  {
+    "code": "65",
+    "name": "Hautes-Pyrénées",
+    "regionSlug": "occitanie",
+    "regionName": "Occitanie",
+    "radarCount": 13
+  },
+  {
+    "code": "66",
+    "name": "Pyrénées-Orientales",
+    "regionSlug": "occitanie",
+    "regionName": "Occitanie",
+    "radarCount": 39
+  },
+  {
+    "code": "67",
+    "name": "Bas-Rhin",
+    "regionSlug": "grand-est",
+    "regionName": "Grand Est",
+    "radarCount": 39
+  },
+  {
+    "code": "68",
+    "name": "Haut-Rhin",
+    "regionSlug": "grand-est",
+    "regionName": "Grand Est",
+    "radarCount": 37
+  },
+  {
+    "code": "69",
+    "name": "Rhône / Métropole de Lyon",
+    "regionSlug": "auvergne-rhone-alpes",
+    "regionName": "Auvergne-Rhône-Alpes",
+    "radarCount": 59
+  },
+  {
+    "code": "70",
+    "name": "Haute-Saône",
+    "regionSlug": "bourgogne-franche-comte",
+    "regionName": "Bourgogne-Franche-Comté",
+    "radarCount": 24
+  },
+  {
+    "code": "71",
+    "name": "Saône-et-Loire",
+    "regionSlug": "bourgogne-franche-comte",
+    "regionName": "Bourgogne-Franche-Comté",
+    "radarCount": 34
+  },
+  {
+    "code": "72",
+    "name": "Sarthe",
+    "regionSlug": "pays-de-la-loire",
+    "regionName": "Pays de la Loire",
+    "radarCount": 36
+  },
+  {
+    "code": "73",
+    "name": "Savoie",
+    "regionSlug": "auvergne-rhone-alpes",
+    "regionName": "Auvergne-Rhône-Alpes",
+    "radarCount": 35
+  },
+  {
+    "code": "74",
+    "name": "Haute-Savoie",
+    "regionSlug": "auvergne-rhone-alpes",
+    "regionName": "Auvergne-Rhône-Alpes",
+    "radarCount": 38
+  },
+  {
+    "code": "75",
+    "name": "Paris",
+    "regionSlug": "ile-de-france",
+    "regionName": "Île-de-France",
+    "radarCount": 40
+  },
+  {
+    "code": "76",
+    "name": "Seine-Maritime",
+    "regionSlug": "normandie",
+    "regionName": "Normandie",
+    "radarCount": 40
+  },
+  {
+    "code": "77",
+    "name": "Seine-et-Marne",
+    "regionSlug": "ile-de-france",
+    "regionName": "Île-de-France",
+    "radarCount": 34
+  },
+  {
+    "code": "78",
+    "name": "Yvelines",
+    "regionSlug": "ile-de-france",
+    "regionName": "Île-de-France",
+    "radarCount": 79
+  },
+  {
+    "code": "79",
+    "name": "Deux-Sèvres",
+    "regionSlug": "nouvelle-aquitaine",
+    "regionName": "Nouvelle-Aquitaine",
+    "radarCount": 31
+  },
+  {
+    "code": "80",
+    "name": "Somme",
+    "regionSlug": "hauts-de-france",
+    "regionName": "Hauts-de-France",
+    "radarCount": 42
+  },
+  {
+    "code": "81",
+    "name": "Tarn",
+    "regionSlug": "occitanie",
+    "regionName": "Occitanie",
+    "radarCount": 34
+  },
+  {
+    "code": "82",
+    "name": "Tarn-et-Garonne",
+    "regionSlug": "occitanie",
+    "regionName": "Occitanie",
+    "radarCount": 41
+  },
+  {
+    "code": "83",
+    "name": "Var",
+    "regionSlug": "provence-alpes-cote-d-azur",
+    "regionName": "Provence-Alpes-Côte d'Azur",
+    "radarCount": 56
+  },
+  {
+    "code": "84",
+    "name": "Vaucluse",
+    "regionSlug": "provence-alpes-cote-d-azur",
+    "regionName": "Provence-Alpes-Côte d'Azur",
+    "radarCount": 51
+  },
+  {
+    "code": "85",
+    "name": "Vendée",
+    "regionSlug": "pays-de-la-loire",
+    "regionName": "Pays de la Loire",
+    "radarCount": 30
+  },
+  {
+    "code": "86",
+    "name": "Vienne",
+    "regionSlug": "nouvelle-aquitaine",
+    "regionName": "Nouvelle-Aquitaine",
+    "radarCount": 32
+  },
+  {
+    "code": "87",
+    "name": "Haute-Vienne",
+    "regionSlug": "nouvelle-aquitaine",
+    "regionName": "Nouvelle-Aquitaine",
+    "radarCount": 26
+  },
+  {
+    "code": "88",
+    "name": "Vosges",
+    "regionSlug": "grand-est",
+    "regionName": "Grand Est",
+    "radarCount": 23
+  },
+  {
+    "code": "89",
+    "name": "Yonne",
+    "regionSlug": "bourgogne-franche-comte",
+    "regionName": "Bourgogne-Franche-Comté",
+    "radarCount": 33
+  },
+  {
+    "code": "90",
+    "name": "Territoire de Belfort",
+    "regionSlug": "bourgogne-franche-comte",
+    "regionName": "Bourgogne-Franche-Comté",
+    "radarCount": 12
+  },
+  {
+    "code": "91",
+    "name": "Essonne",
+    "regionSlug": "ile-de-france",
+    "regionName": "Île-de-France",
+    "radarCount": 50
+  },
+  {
+    "code": "92",
+    "name": "Hauts-de-Seine",
+    "regionSlug": "ile-de-france",
+    "regionName": "Île-de-France",
+    "radarCount": 49
+  },
+  {
+    "code": "93",
+    "name": "Seine-Saint-Denis",
+    "regionSlug": "ile-de-france",
+    "regionName": "Île-de-France",
+    "radarCount": 20
+  },
+  {
+    "code": "94",
+    "name": "Val-de-Marne",
+    "regionSlug": "ile-de-france",
+    "regionName": "Île-de-France",
+    "radarCount": 27
+  },
+  {
+    "code": "95",
+    "name": "Val-d'Oise",
+    "regionSlug": "ile-de-france",
+    "regionName": "Île-de-France",
+    "radarCount": 58
+  },
+  {
+    "code": "971",
+    "name": "Guadeloupe",
+    "regionSlug": "guadeloupe",
+    "regionName": "Guadeloupe",
+    "radarCount": 20
+  },
+  {
+    "code": "972",
+    "name": "Martinique",
+    "regionSlug": "martinique",
+    "regionName": "Martinique",
+    "radarCount": 21
+  },
+  {
+    "code": "973",
+    "name": "Guyane",
+    "regionSlug": "guyane",
+    "regionName": "Guyane",
+    "radarCount": 8
+  },
+  {
+    "code": "974",
+    "name": "La Réunion",
+    "regionSlug": "la-reunion",
+    "regionName": "La Réunion",
+    "radarCount": 14
+  },
+  {
+    "code": "976",
+    "name": "Mayotte",
+    "regionSlug": "mayotte",
+    "regionName": "Mayotte",
+    "radarCount": 0
+  }
+]
