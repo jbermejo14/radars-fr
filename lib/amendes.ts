@@ -18,18 +18,20 @@ export interface CalculAmendeResult {
   excesVitesse: number;
   isInfraction: boolean;
   pointsRetires: number;
-  classeContravention: 0 | 3 | 4 | 5;
+  classeContravention: 0 | 3 | 4 | 'delit';
   amendeMinoree: number;
   amendeForfaitaire: number;
   amendeMajoree: number;
   amendeMaximaleTribunal: number;
+  /** Peine d'emprisonnement maximale en mois devant le tribunal correctionnel (0 si aucune). */
+  emprisonnementMaxMois: number;
   sanctionsComplementaires: string[];
   delaiRecuperationPoints: string;
   reforme2024Appliquee: boolean;
 }
 
 /**
- * Calcule la marge technique d'erreur officielle selon l'Arrêté ministériel du 4 juin 2009.
+ * Calcule la marge technique d'erreur selon l'Arrêté ministériel du 4 juin 2009.
  * - Radar fixe : 5 km/h jusqu'à 100 km/h, puis 5 % de la vitesse au-delà (arrondi à l'entier supérieur).
  * - Radar mobile en mouvement : 10 km/h jusqu'à 100 km/h, puis 10 % au-delà.
  */
@@ -83,6 +85,7 @@ export function calculateAmendeVitesse(input: CalculAmendeInput): CalculAmendeRe
       amendeForfaitaire: 0,
       amendeMajoree: 0,
       amendeMaximaleTribunal: 0,
+      emprisonnementMaxMois: 0,
       sanctionsComplementaires: [],
       delaiRecuperationPoints: 'Aucune perte de points',
       reforme2024Appliquee: false,
@@ -90,11 +93,12 @@ export function calculateAmendeVitesse(input: CalculAmendeInput): CalculAmendeRe
   }
 
   let pointsRetires = 0;
-  let classeContravention: 0 | 3 | 4 | 5 = 4;
+  let classeContravention: 0 | 3 | 4 | 'delit' = 4;
   let amendeMinoree = 90;
   let amendeForfaitaire = 135;
   let amendeMajoree = 375;
   let amendeMaximaleTribunal = 750;
+  let emprisonnementMaxMois = 0;
   const sanctionsComplementaires: string[] = [];
   let delaiRecuperationPoints = '';
   let reforme2024Appliquee = false;
@@ -157,19 +161,21 @@ export function calculateAmendeVitesse(input: CalculAmendeInput): CalculAmendeRe
     sanctionsComplementaires.push('Confiscation possible du véhicule');
     delaiRecuperationPoints = '3 ans sans nouvelle infraction';
   } else {
-    // Grand excès de vitesse >= 50 km/h (Contravention de 5e classe)
+    // Grand excès de vitesse >= 50 km/h : délit dès la première fois depuis le 29/12/2025
+    // (loi n° 2025-622 du 9 juillet 2025, décret n° 2025-1269 du 22 décembre 2025).
     pointsRetires = 6;
-    classeContravention = 5;
-    amendeMinoree = 0; // Pas d'amende forfaitaire minorée
-    amendeForfaitaire = 0; // Passe directement devant le Tribunal de police
-    amendeMajoree = 0;
-    amendeMaximaleTribunal = 1500;
+    classeContravention = 'delit';
+    // Amende forfaitaire délictuelle (AFD), applicable si le conducteur est identifié.
+    amendeMinoree = 250;
+    amendeForfaitaire = 300;
+    amendeMajoree = 600;
+    amendeMaximaleTribunal = 3750;
+    emprisonnementMaxMois = 3;
     sanctionsComplementaires.push('Rétention immédiate du permis de conduire (72h)');
     sanctionsComplementaires.push('Suspension du permis jusqu\'à 3 ans (sans aménagement professionnel)');
-    sanctionsComplementaires.push('Confiscation du véhicule si le conducteur en est le propriétaire');
-    sanctionsComplementaires.push('Interdiction de conduire certains véhicules terrestres à moteur pendant 3 ans au plus');
-    sanctionsComplementaires.push('Obligation d\'effectuer un stage de sensibilisation');
-    sanctionsComplementaires.push('En cas de récidive : délit puni de 3 750 € d\'amende et 3 mois de prison');
+    sanctionsComplementaires.push('Immobilisation du véhicule');
+    sanctionsComplementaires.push('Confiscation possible du véhicule');
+    sanctionsComplementaires.push('Sans AFD ou devant le tribunal correctionnel : jusqu\'à 3 750 € d\'amende et 3 mois d\'emprisonnement');
     delaiRecuperationPoints = '3 ans sans nouvelle infraction';
   }
 
@@ -188,6 +194,7 @@ export function calculateAmendeVitesse(input: CalculAmendeInput): CalculAmendeRe
     amendeForfaitaire,
     amendeMajoree,
     amendeMaximaleTribunal,
+    emprisonnementMaxMois,
     sanctionsComplementaires,
     delaiRecuperationPoints,
     reforme2024Appliquee,

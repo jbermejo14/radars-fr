@@ -35,7 +35,7 @@ export function SpeedPenaltyCalculator() {
       <div className="border-b border-line pb-4">
         <h2 className="text-xl font-bold text-fg">Simulateur d'amende et retrait de points 2026</h2>
         <p className="text-xs text-secondary mt-1">
-          Barème officiel du Code de la route avec calcul automatique de la marge technique légale (réforme 2024 incluse).
+          Barème des amendes selon le Code de la route avec calcul automatique de la marge technique légale (réforme 2024 incluse).
         </p>
       </div>
 
@@ -215,7 +215,7 @@ export function SpeedPenaltyCalculator() {
               )}
 
               {/* Détail financier des amendes */}
-              {result.classeContravention !== 5 ? (
+              {result.classeContravention !== 'delit' ? (
                 <div className="space-y-2">
                   <span className="text-xs font-bold text-fg block">
                     Montant de l'amende forfaitaire (Contravention de {result.classeContravention}e classe) :
@@ -239,11 +239,15 @@ export function SpeedPenaltyCalculator() {
                 <div className="p-3 rounded-lg bg-negative/10 border border-negative/20 text-negative text-xs space-y-1">
                   <div className="flex items-center gap-1.5 font-bold text-sm">
                     <ShieldAlert className="w-4 h-4 shrink-0" />
-                    <span>Grand excès de vitesse (5e classe)</span>
+                    <span>Grand excès de vitesse (délit)</span>
                   </div>
                   <p>
-                    Pas d'amende forfaitaire : comparution obligatoire devant le Tribunal de police.
-                    Amende judiciaire pouvant atteindre <strong>1 500 €</strong>.
+                    Délit depuis le 29/12/2025. Amende forfaitaire délictuelle (si le conducteur est identifié) :{' '}
+                    <strong>{result.amendeForfaitaire} €</strong> ({result.amendeMinoree} € minorée, {result.amendeMajoree} € majorée).
+                  </p>
+                  <p>
+                    Sinon, ou devant le tribunal correctionnel : jusqu'à <strong>{result.amendeMaximaleTribunal} €</strong> d'amende
+                    et <strong>{result.emprisonnementMaxMois} mois</strong> d'emprisonnement.
                   </p>
                 </div>
               )}

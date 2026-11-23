@@ -110,7 +110,7 @@ describe('Sanctions et barème du Code de la route', () => {
     assert.ok(res.sanctionsComplementaires.some((s) => s.includes('Suspension')));
   });
 
-  it('Grand excès de vitesse >= 50 km/h : 6 points et contravention de 5e classe', () => {
+  it('Grand excès de vitesse >= 50 km/h : 6 points et délit', () => {
     const res = calculateAmendeVitesse({
       vitesseMesuree: 195,
       vitesseAutorisee: 130,
@@ -118,8 +118,42 @@ describe('Sanctions et barème du Code de la route', () => {
     });
     // 195 - 10 = 185 km/h -> excès de +55 km/h
     assert.equal(res.pointsRetires, 6);
-    assert.equal(res.classeContravention, 5);
-    assert.equal(res.amendeMaximaleTribunal, 1500);
+    assert.equal(res.classeContravention, 'delit');
+    assert.equal(res.amendeMaximaleTribunal, 3750);
     assert.ok(res.sanctionsComplementaires.some((s) => s.includes('Rétention')));
+  });
+});
+
+describe('Grand excès de vitesse >= 50 km/h : délit depuis le 29/12/2025', () => {
+  it('Applique l\'AFD 300/250/600, le plafond tribunal et les 6 points', () => {
+    const res = calculateAmendeVitesse({ vitesseMesuree: 195, vitesseAutorisee: 130, typeRadar: 'fixe' });
+    assert.equal(res.classeContravention, 'delit');
+    assert.equal(res.pointsRetires, 6);
+    assert.equal(res.amendeForfaitaire, 300);
+    assert.equal(res.amendeMinoree, 250);
+    assert.equal(res.amendeMajoree, 600);
+    assert.equal(res.amendeMaximaleTribunal, 3750);
+    assert.equal(res.emprisonnementMaxMois, 3);
+    assert.ok(res.sanctionsComplementaires.some((s) => s.includes('Immobilisation')));
+    assert.ok(res.sanctionsComplementaires.some((s) => s.includes('Confiscation')));
+  });
+
+  it('Borne : excès retenu 49 km/h reste une contravention, 50 km/h est un délit', () => {
+    const limite49 = calculateAmendeVitesse({ vitesseMesuree: 105, vitesseAutorisee: 50, typeRadar: 'fixe' });
+    assert.equal(limite49.excesVitesse, 49);
+    assert.equal(limite49.classeContravention, 4);
+    assert.equal(limite49.pointsRetires, 4);
+    const limite50 = calculateAmendeVitesse({ vitesseMesuree: 106, vitesseAutorisee: 50, typeRadar: 'fixe' });
+    assert.equal(limite50.excesVitesse, 50);
+    assert.equal(limite50.classeContravention, 'delit');
+    assert.equal(limite50.pointsRetires, 6);
+  });
+
+  it('Marge technique selon la vitesse mesurée : 99 -> 94, 100 -> 95, 137 -> 130', () => {
+    const retenue = (mesuree: number) =>
+      calculateAmendeVitesse({ vitesseMesuree: mesuree, vitesseAutorisee: 30, typeRadar: 'fixe' }).vitesseRetenue;
+    assert.equal(retenue(99), 94);
+    assert.equal(retenue(100), 95);
+    assert.equal(retenue(137), 130);
   });
 });

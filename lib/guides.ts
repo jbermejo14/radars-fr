@@ -18,9 +18,9 @@ export interface GuideItem {
 export const GUIDES: GuideItem[] = [
   {
     slug: 'bareme-amende-exces-de-vitesse',
-    title: 'Barème officiel des amendes et perte de points pour excès de vitesse (2026)',
+    title: 'Barème des amendes et perte de points pour excès de vitesse (2026)',
     metaTitle: 'Barème Amendes Excès de Vitesse 2026 : Prix et Points Retirés | Ododex',
-    metaDescription: 'Consultez le barème officiel du Code de la route : montants des amendes (minorée, forfaitaire, majorée) et points retirés selon votre vitesse et le type de radar.',
+    metaDescription: 'Consultez le barème des amendes selon le Code de la route : montants des amendes (minorée, forfaitaire, majorée) et points retirés selon votre vitesse et le type de radar.',
     summary: 'Le barème des sanctions pour excès de vitesse dépend de la vitesse retenue après déduction de la marge technique et de la limitation de vitesse autorisée (en agglomération ou hors agglomération).',
     publishedDate: '2026-01-01',
     sections: [
@@ -41,8 +41,9 @@ export const GUIDES: GuideItem[] = [
       {
         heading: 'Grand excès de vitesse (supérieur ou égal à 50 km/h)',
         content: [
-          'Rouler à 50 km/h ou plus au-dessus de la vitesse maximale autorisée constitue une contravention de 5e classe. Il n\'y a pas d\'amende forfaitaire : le dossier est transmis au Tribunal de police.',
-          'Les sanctions encourues sont très lourdes : retrait immédiat de 6 points, amende judiciaire pouvant atteindre 1 500 €, suspension du permis jusqu\'à 3 ans, et confiscation possible du véhicule. En cas de récidive sous 3 ans, cela devient un délit pénal puni de 3 mois d\'emprisonnement et 3 750 € d\'amende.'
+          'Depuis le 29 décembre 2025 (loi n° 2025-622 du 9 juillet 2025 et décret n° 2025-1269 du 22 décembre 2025), rouler à 50 km/h ou plus au-dessus de la vitesse maximale autorisée est un délit dès la première fois, et non plus une simple contravention.',
+          'Si le conducteur est identifié, une amende forfaitaire délictuelle (AFD) peut être appliquée : 300 € (250 € minorée, 600 € majorée). Sinon, ou si le dossier est porté devant le tribunal correctionnel, les peines encourues sont de 3 750 € d\'amende et 3 mois d\'emprisonnement.',
+          'Les autres conséquences sont lourdes : retrait de 6 points, suspension du permis jusqu\'à 3 ans, immobilisation du véhicule et confiscation possible du véhicule.'
         ]
       }
     ],
@@ -69,7 +70,7 @@ export const GUIDES: GuideItem[] = [
         heading: 'Délais de récupération automatique de plein droit',
         content: [
           'Le Code de la route prévoit plusieurs délais stricts sans commettre de nouvelle infraction pour récupérer automatiquement des points :',
-          '• Délai de 6 mois : Pour la perte d\'un seul point (excès de 5 à 19 km/h, chevauchement de ligne continue). Le point est restitué au bout de 6 mois sans aucune autre infraction.\n• Délai de 2 ans : Si vous avez commis des contraventions de 2e ou 3e classe (ex: excès < 20 km/h hors agglo). Votre capital remonte à 12 points après 2 ans sans infraction.\n• Délai de 3 ans : Si vous avez commis une contravention de 4e ou 5e classe (téléphone en main, feu rouge, excès >= 20 km/h). Il faut 3 ans sans infraction pour retrouver 12 points.\n• Règle des 10 ans : Les points perdus pour des contraventions sont automatiquement réattribués 10 ans après l\'infraction, même si vous en avez commis d\'autres entre-temps.'
+          '• Délai de 6 mois : Pour la perte d\'un seul point (excès de 5 à 19 km/h, chevauchement de ligne continue). Le point est restitué au bout de 6 mois sans aucune autre infraction.\n• Délai de 2 ans : Si vous avez commis des contraventions de 2e ou 3e classe (ex: excès < 20 km/h hors agglo). Votre capital remonte à 12 points après 2 ans sans infraction.\n• Délai de 3 ans : Si vous avez commis une contravention de classe 4 ou 5 (téléphone en main, feu rouge, excès >= 20 km/h). Il faut 3 ans sans infraction pour retrouver 12 points.\n• Règle des 10 ans : Les points perdus pour des contraventions sont automatiquement réattribués 10 ans après l\'infraction, même si vous en avez commis d\'autres entre-temps.'
         ]
       },
       {

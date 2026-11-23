@@ -8,7 +8,7 @@ import { absoluteUrl } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Radars & Amendes 2026 : Simulateur d\'excès de vitesse et carte des radars | Ododex',
-  description: 'Simulateur officiel d\'amende et perte de points pour excès de vitesse (Code de la route 2026). Emplacement et carte des 3 350 radars automatiques en France par département.',
+  description: 'Simulateur d\'amende et de retrait de points pour excès de vitesse (Code de la route 2026). Emplacement et carte des 3 350 radars automatiques en France par département.',
   metadataBase: new URL('https://ododex.com'),
   alternates: {
     canonical: absoluteUrl('/'),
