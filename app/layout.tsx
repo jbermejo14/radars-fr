@@ -4,25 +4,16 @@ import './globals.css';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { AdSenseScript } from '@/components/AdSenseScript';
-import { absoluteUrl } from '@/lib/site';
+import { SITE_ORIGIN } from '@/lib/site';
+import { buildHomeSeo, buildPageMetadata } from '@/lib/seo';
+
+const homeSeo = buildHomeSeo();
 
 export const metadata: Metadata = {
-  title: 'Radars & Amendes 2026 : Simulateur d\'excès de vitesse et carte des radars | Ododex',
-  description: 'Simulateur d\'amende et de retrait de points pour excès de vitesse (Code de la route 2026). Emplacement et carte des 3 350 radars automatiques en France par département.',
-  metadataBase: new URL('https://ododex.com'),
-  alternates: {
-    canonical: absoluteUrl('/'),
-  },
+  ...buildPageMetadata(homeSeo, '/'),
+  metadataBase: new URL(SITE_ORIGIN),
   icons: {
     icon: '/fr/radars/icon.svg',
-  },
-  openGraph: {
-    title: 'Radars & Amendes 2026 : Simulateur d\'excès de vitesse et carte | Ododex',
-    description: 'Calculez le montant de votre amende, vos points retirés et consultez l\'emplacement des 3 350 radars en France.',
-    url: absoluteUrl('/'),
-    siteName: 'Ododex',
-    locale: 'fr_FR',
-    type: 'website',
   },
 };
 

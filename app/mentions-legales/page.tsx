@@ -3,6 +3,7 @@ import { LegalPage } from '@/components/LegalPage';
 import { getTitular, type Titular } from '@/lib/legal';
 import { legalHolderValue, legalMetadata } from '@/lib/legal-text';
 import { SITE_NAME } from '@/lib/site';
+import { buildTitle } from '@/lib/seo';
 
 const PATH = '/mentions-legales';
 const URL_CLOUDFLARE = 'https://www.cloudflare.com';
@@ -11,8 +12,8 @@ const URL_ANTAI = 'https://antai.gouv.fr';
 
 export const metadata = legalMetadata(
   PATH,
-  'Mentions légales',
-  `Mentions légales de ${SITE_NAME} : éditeur, hébergeur, sources des données des radars et limites de responsabilité.`
+  buildTitle('Mentions légales'),
+  `Mentions légales de ${SITE_NAME} : éditeur du site, hébergeur, sources des données sur les radars et limites de responsabilité.`
 );
 
 export default function MentionsLegalesPage() {

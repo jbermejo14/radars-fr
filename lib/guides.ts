@@ -1,6 +1,7 @@
 export interface GuideItem {
   slug: string;
   title: string;
+  /** Titre sans la marque : `buildTitle` ajoute « | Ododex ». */
   metaTitle: string;
   metaDescription: string;
   summary: string;
@@ -19,8 +20,8 @@ export const GUIDES: GuideItem[] = [
   {
     slug: 'bareme-amende-exces-de-vitesse',
     title: 'Barème des amendes et perte de points pour excès de vitesse (2026)',
-    metaTitle: 'Barème Amendes Excès de Vitesse 2026 : Prix et Points Retirés | Ododex',
-    metaDescription: 'Consultez le barème des amendes selon le Code de la route : montants des amendes (minorée, forfaitaire, majorée) et points retirés selon votre vitesse et le type de radar.',
+    metaTitle: 'Amendes excès de vitesse 2026 : barème et points',
+    metaDescription: 'Barème des amendes pour excès de vitesse selon le Code de la route : montants minoré, forfaitaire et majoré, et points retirés selon votre vitesse.',
     summary: 'Le barème des sanctions pour excès de vitesse dépend de la vitesse retenue après déduction de la marge technique et de la limitation de vitesse autorisée (en agglomération ou hors agglomération).',
     publishedDate: '2026-01-01',
     sections: [
@@ -61,8 +62,8 @@ export const GUIDES: GuideItem[] = [
   {
     slug: 'recuperation-points-permis-delais',
     title: 'Délais de récupération automatique des points et stages de sensibilisation',
-    metaTitle: 'Récupération de Points Permis : Délais Automatiques et Stages | Ododex',
-    metaDescription: 'Découvrez comment récupérer vos points de permis perdus : délais automatiques de 6 mois, 2 ans, 3 ans ou 10 ans sans infraction, et stage de sensibilisation (+4 points).',
+    metaTitle: 'Récupération de points de permis : délais et stages',
+    metaDescription: 'Comment récupérer vos points de permis : délais automatiques de 6 mois, 2 ans, 3 ans ou 10 ans sans infraction, et stage de sensibilisation (+4 points).',
     summary: 'La reconstitution de votre capital de points de permis peut se faire automatiquement avec le temps ou rapidement grâce à un stage agréé de récupération de points.',
     publishedDate: '2026-01-01',
     sections: [
@@ -95,8 +96,8 @@ export const GUIDES: GuideItem[] = [
   {
     slug: 'contester-pv-radar-antai',
     title: 'Comment contester un PV de radar automatique en ligne sur l\'ANTAI',
-    metaTitle: 'Contester un PV Radar Automatique sur l\'ANTAI : Démarche et Délais | Ododex',
-    metaDescription: 'Guide pour contester une amende de radar automatique sur antai.gouv.fr : délai de 45 jours, consignation préalable et désignation du vrai conducteur.',
+    metaTitle: 'Contester un PV de radar sur l\'ANTAI : démarche',
+    metaDescription: 'Guide pour contester une amende de radar automatique sur antai.gouv.fr : délai de 45 jours, consignation préalable et désignation du conducteur réel.',
     summary: 'Si vous n\'étiez pas au volant de votre voiture au moment du flash ou si votre véhicule a été vendu ou usurpé, vous pouvez contester l\'amende en ligne sans avance de frais.',
     publishedDate: '2026-01-01',
     sections: [
@@ -129,8 +130,8 @@ export const GUIDES: GuideItem[] = [
   {
     slug: 'marge-technique-radar-erreur',
     title: 'Marge technique des radars : Comment est calculée la vitesse retenue ?',
-    metaTitle: 'Marge Technique des Radars en France : Calcul des 5 km/h ou 5% | Ododex',
-    metaDescription: 'Tout savoir sur la marge technique d\'erreur des radars automatiques fixes et mobiles : tableau des tolérances et formule de calcul de la vitesse retenue.',
+    metaTitle: 'Marge technique des radars : 5 km/h ou 5 %',
+    metaDescription: 'La marge technique d\'erreur des radars automatiques fixes et mobiles : tableau des tolérances et formule de calcul de la vitesse retenue.',
     summary: 'Les radars ne retiennent jamais la vitesse brute mesurée : une marge d\'erreur réglementaire est obligatoirement déduite en faveur de l\'automobiliste.',
     publishedDate: '2026-01-01',
     sections: [
@@ -142,7 +143,7 @@ export const GUIDES: GuideItem[] = [
         ]
       },
       {
-        heading: 'Le tableau des marges officielles selon le type de radar',
+        heading: 'Le tableau des marges techniques applicables selon le type de radar',
         content: [
           '• Radars fixes (cabines, tourelles, chantiers, tronçons) :\n  - Jusqu\'à 100 km/h : déduction fixe de 5 km/h.\n  - Au-delà de 100 km/h : déduction de 5 % de la vitesse mesurée (arrondie au km/h supérieur).\n  - Exemple : Flashé à 138 km/h sur autoroute ➔ 5 % de 138 = 6,9 km/h arrondi à 7 km/h ➔ Vitesse retenue = 131 km/h.',
           '• Radars mobiles en mouvement (voitures radars banalisées) :\n  - Jusqu\'à 100 km/h : déduction fixe de 10 km/h.\n  - Au-delà de 100 km/h : déduction de 10 % de la vitesse mesurée.\n  - Exemple : Flashé à 140 km/h ➔ Marge de 14 km/h ➔ Vitesse retenue = 126 km/h (pas d\'infraction à 130 km/h !).'

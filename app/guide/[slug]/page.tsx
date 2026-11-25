@@ -6,6 +6,7 @@ import { GUIDES, findGuideBySlug } from '@/lib/guides';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { AdSlot } from '@/components/AdSlot';
 import { absoluteUrl } from '@/lib/site';
+import { buildPageMetadata, buildTitle } from '@/lib/seo';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -24,18 +25,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const guide = findGuideBySlug(slug);
   if (!guide) return {};
 
-  return {
-    title: guide.metaTitle,
-    description: guide.metaDescription,
-    alternates: {
-      canonical: absoluteUrl(`/guide/${guide.slug}`),
-    },
-    openGraph: {
-      title: guide.metaTitle,
-      description: guide.metaDescription,
-      url: absoluteUrl(`/guide/${guide.slug}`),
-    },
-  };
+  const seo = { title: buildTitle(guide.metaTitle), description: guide.metaDescription };
+  return buildPageMetadata(seo, `/guide/${guide.slug}`);
 }
 
 export default async function GuidePage({ params }: Props) {

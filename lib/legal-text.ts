@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { FECHA_TEXTOS_LEGALES } from './legal';
 import type { Titular } from './legal';
 import { absoluteUrl } from './site';
+import { buildOpenGraph, buildTwitter } from './seo';
 
 export const LEGAL_ROBOTS = { index: false, follow: true } as const;
 
@@ -28,6 +29,8 @@ export function legalMetadata(path: string, title: string, description: string):
     title,
     description,
     robots: LEGAL_ROBOTS,
-    alternates: { canonical: absoluteUrl(path) }
+    alternates: { canonical: absoluteUrl(path) },
+    openGraph: buildOpenGraph({ title, description }, path),
+    twitter: buildTwitter()
   };
 }

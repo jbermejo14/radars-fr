@@ -14,6 +14,7 @@ const PROJECT_ALIAS = '@/';
 const CANDIDATE_SUFFIXES = ['', '.ts', '.tsx', '/index.ts', '/index.tsx'];
 const TYPESCRIPT_FILE = /\.tsx?$/;
 const JSON_FILE = /\.json$/;
+const CSS_FILE = /\.css$/;
 
 const COMPILER_OPTIONS = {
   module: ts.ModuleKind.ESNext,
@@ -86,6 +87,10 @@ export async function load(url, context, nextLoad) {
   if (JSON_FILE.test(path)) {
     const source = await readFile(path, 'utf8');
     return { format: 'module', source: `export default ${source};`, shortCircuit: true };
+  }
+  if (CSS_FILE.test(path)) {
+    // Las hojas de estilo no afectan a las pruebas: se importan como módulo vacío.
+    return { format: 'module', source: 'export default {};', shortCircuit: true };
   }
   return nextLoad(url, context);
 }

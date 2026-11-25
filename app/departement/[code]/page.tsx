@@ -7,7 +7,8 @@ import { RadarMap } from '@/components/RadarMap';
 import { SpeedPenaltyCalculator } from '@/components/SpeedPenaltyCalculator';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { AdSlot } from '@/components/AdSlot';
-import { absoluteUrl } from '@/lib/site';
+import { getDepartementLocative } from '@/lib/departement-articles';
+import { buildDepartementSeo, buildPageMetadata } from '@/lib/seo';
 
 interface Props {
   params: Promise<{ code: string }>;
@@ -27,21 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const dept = getDepartementByCode(code);
   if (!dept) return {};
 
-  const title = `Radars ${dept.name} (${dept.code}) 2026 : Carte et Emplacement des ${dept.radarCount} Radars | Ododex`;
-  const description = `Découvrez la carte et l'emplacement précis des ${dept.radarCount} radars automatiques en ${dept.name} (${dept.code}), région ${dept.regionName}. Vitesses autorisées, routes contrôlées et simulateur d'amendes.`;
-
-  return {
-    title,
-    description,
-    alternates: {
-      canonical: absoluteUrl(`/departement/${dept.code}`),
-    },
-    openGraph: {
-      title,
-      description,
-      url: absoluteUrl(`/departement/${dept.code}`),
-    },
-  };
+  return buildPageMetadata(buildDepartementSeo(dept), `/departement/${dept.code}`);
 }
 
 export default async function DepartementPage({ params }: Props) {
@@ -49,6 +36,7 @@ export default async function DepartementPage({ params }: Props) {
   const dept = getDepartementByCode(code);
   if (!dept) notFound();
 
+  const place = getDepartementLocative(dept.code);
   const radars = getRadarsByDepartement(code);
   const allDepts = getAllDepartements();
 
@@ -78,7 +66,7 @@ export default async function DepartementPage({ params }: Props) {
         </div>
 
         <h1 className="text-2xl sm:text-3xl font-black text-fg tracking-tight">
-          Radars automatiques en {dept.name} ({dept.code})
+          Radars automatiques {place} ({dept.code})
         </h1>
 
         <p className="text-sm text-secondary leading-relaxed">
@@ -90,7 +78,7 @@ export default async function DepartementPage({ params }: Props) {
       {/* Carte interactive des radars du département */}
       <section className="space-y-3">
         <h2 className="text-lg font-bold text-fg">
-          Carte des radars en {dept.name}
+          Carte des radars {place}
         </h2>
         {radars.length > 0 ? (
           <RadarMap radars={radars} departementName={dept.name} />
@@ -108,7 +96,7 @@ export default async function DepartementPage({ params }: Props) {
       <section className="card space-y-4">
         <div>
           <h2 className="text-lg font-bold text-fg">
-            Liste des équipements de contrôle en {dept.name}
+            Liste des équipements de contrôle {place}
           </h2>
           <p className="text-xs text-secondary mt-0.5">
             Détail par axe routier, commune et sens de circulation.
@@ -174,7 +162,7 @@ export default async function DepartementPage({ params }: Props) {
       {/* Autres départements voisins */}
       <section className="space-y-3 pt-6 border-t border-line">
         <h3 className="text-sm font-bold text-fg uppercase tracking-wider">
-          Autres départements en {dept.regionName}
+          Autres départements de la région {dept.regionName}
         </h3>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
           {allDepts
