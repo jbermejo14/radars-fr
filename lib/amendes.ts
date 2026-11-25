@@ -1,18 +1,15 @@
 export type TypeRadar = 'fixe' | 'mobile';
-export type TypeVoie = 'agglo' | 'hors_agglo';
 
 export interface CalculAmendeInput {
   vitesseMesuree: number;
   vitesseAutorisee: number;
   typeRadar?: TypeRadar;
-  typeVoie?: TypeVoie;
 }
 
 export interface CalculAmendeResult {
   vitesseMesuree: number;
   vitesseAutorisee: number;
   typeRadar: TypeRadar;
-  typeVoie: TypeVoie;
   margeTechnique: number;
   vitesseRetenue: number;
   excesVitesse: number;
@@ -58,12 +55,7 @@ export function calculateMargeTechnique(vitesseMesuree: number, typeRadar: TypeR
  * pour les excès inférieurs à 5 km/h).
  */
 export function calculateAmendeVitesse(input: CalculAmendeInput): CalculAmendeResult {
-  const {
-    vitesseMesuree,
-    vitesseAutorisee,
-    typeRadar = 'fixe',
-    typeVoie = vitesseAutorisee <= 50 ? 'agglo' : 'hors_agglo',
-  } = input;
+  const { vitesseMesuree, vitesseAutorisee, typeRadar = 'fixe' } = input;
 
   const margeTechnique = calculateMargeTechnique(vitesseMesuree, typeRadar);
   const vitesseRetenue = Math.max(0, vitesseMesuree - margeTechnique);
@@ -74,7 +66,6 @@ export function calculateAmendeVitesse(input: CalculAmendeInput): CalculAmendeRe
       vitesseMesuree,
       vitesseAutorisee,
       typeRadar,
-      typeVoie,
       margeTechnique,
       vitesseRetenue,
       excesVitesse: 0,
@@ -114,7 +105,8 @@ export function calculateAmendeVitesse(input: CalculAmendeInput): CalculAmendeRe
       delaiRecuperationPoints = '6 mois sans nouvelle infraction (récupération automatique)';
     }
 
-    if (vitesseAutorisee > 50 && typeVoie === 'hors_agglo') {
+    // Le barème dépend uniquement de la limitation, pas du type de voie.
+    if (vitesseAutorisee > 50) {
       // Contravention de 3e classe
       classeContravention = 3;
       amendeMinoree = 45;
@@ -122,7 +114,7 @@ export function calculateAmendeVitesse(input: CalculAmendeInput): CalculAmendeRe
       amendeMajoree = 180;
       amendeMaximaleTribunal = 450;
     } else {
-      // Contravention de 4e classe (en agglomération ou zone 50)
+      // Contravention de 4e classe (limitation de 50 km/h ou moins)
       classeContravention = 4;
       amendeMinoree = 90;
       amendeForfaitaire = 135;
@@ -136,7 +128,7 @@ export function calculateAmendeVitesse(input: CalculAmendeInput): CalculAmendeRe
     amendeForfaitaire = 135;
     amendeMajoree = 375;
     amendeMaximaleTribunal = 750;
-    delaiRecuperationPoints = '2 ans sans nouvelle infraction (ou 3 ans si autre infraction)';
+    delaiRecuperationPoints = '3 ans sans nouvelle infraction';
   } else if (excesVitesse >= 30 && excesVitesse < 40) {
     pointsRetires = 3;
     classeContravention = 4;
@@ -183,7 +175,6 @@ export function calculateAmendeVitesse(input: CalculAmendeInput): CalculAmendeRe
     vitesseMesuree,
     vitesseAutorisee,
     typeRadar,
-    typeVoie,
     margeTechnique,
     vitesseRetenue,
     excesVitesse,

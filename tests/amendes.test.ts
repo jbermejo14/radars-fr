@@ -36,12 +36,11 @@ describe('Sanctions et barème du Code de la route', () => {
     assert.equal(res.amendeForfaitaire, 0);
   });
 
-  it('Réforme 2024 : 0 point pour excès < 5 km/h hors agglomération (amende 68 €)', () => {
+  it('Réforme 2024 : 0 point pour excès < 5 km/h avec limitation > 50 km/h (amende 68 €)', () => {
     const res = calculateAmendeVitesse({
       vitesseMesuree: 138,
       vitesseAutorisee: 130,
       typeRadar: 'fixe',
-      typeVoie: 'hors_agglo',
     });
     // 138 - 7 = 131 km/h -> excès de +1 km/h
     assert.equal(res.isInfraction, true);
@@ -55,12 +54,11 @@ describe('Sanctions et barème du Code de la route', () => {
     assert.equal(res.amendeMajoree, 180);
   });
 
-  it('Excès de 5 à 19 km/h hors agglo : 1 point et 68 €', () => {
+  it('Excès de 5 à 19 km/h avec limitation > 50 km/h : 1 point et 68 €', () => {
     const res = calculateAmendeVitesse({
       vitesseMesuree: 145,
       vitesseAutorisee: 130,
       typeRadar: 'fixe',
-      typeVoie: 'hors_agglo',
     });
     // 145 - 8 = 137 km/h -> excès de +7 km/h
     assert.equal(res.isInfraction, true);
@@ -75,7 +73,6 @@ describe('Sanctions et barème du Code de la route', () => {
       vitesseMesuree: 62,
       vitesseAutorisee: 50,
       typeRadar: 'fixe',
-      typeVoie: 'agglo',
     });
     // 62 - 5 = 57 km/h -> excès de +7 km/h
     assert.equal(res.isInfraction, true);
@@ -91,7 +88,6 @@ describe('Sanctions et barème du Code de la route', () => {
       vitesseMesuree: 160,
       vitesseAutorisee: 130,
       typeRadar: 'fixe',
-      typeVoie: 'hors_agglo',
     });
     // 160 - 8 = 152 km/h -> excès de +22 km/h
     assert.equal(res.pointsRetires, 2);
@@ -155,5 +151,60 @@ describe('Grand excès de vitesse >= 50 km/h : délit depuis le 29/12/2025', () 
     assert.equal(retenue(99), 94);
     assert.equal(retenue(100), 95);
     assert.equal(retenue(137), 130);
+  });
+});
+
+describe('Barème selon la limitation et non selon le type de voie', () => {
+  it('Limite 70 (en agglomération ou non) avec +10 km/h : 3e classe, 68 €', () => {
+    const res = calculateAmendeVitesse({ vitesseMesuree: 85, vitesseAutorisee: 70, typeRadar: 'fixe' });
+    assert.equal(res.excesVitesse, 10);
+    assert.equal(res.classeContravention, 3);
+    assert.equal(res.amendeMinoree, 45);
+    assert.equal(res.amendeForfaitaire, 68);
+    assert.equal(res.amendeMajoree, 180);
+  });
+
+  it('Limite 50 avec +10 km/h : 4e classe, 135 €', () => {
+    const res = calculateAmendeVitesse({ vitesseMesuree: 65, vitesseAutorisee: 50, typeRadar: 'fixe' });
+    assert.equal(res.excesVitesse, 10);
+    assert.equal(res.classeContravention, 4);
+    assert.equal(res.amendeMinoree, 90);
+    assert.equal(res.amendeForfaitaire, 135);
+    assert.equal(res.amendeMajoree, 375);
+  });
+
+  it('Excès < 5 km/h : 68 € si limite 70, 135 € si limite 50, sans point', () => {
+    const rapide = calculateAmendeVitesse({ vitesseMesuree: 76, vitesseAutorisee: 70, typeRadar: 'fixe' });
+    const lente = calculateAmendeVitesse({ vitesseMesuree: 56, vitesseAutorisee: 50, typeRadar: 'fixe' });
+    assert.equal(rapide.excesVitesse, 1);
+    assert.equal(rapide.pointsRetires, 0);
+    assert.equal(rapide.amendeForfaitaire, 68);
+    assert.equal(lente.excesVitesse, 1);
+    assert.equal(lente.pointsRetires, 0);
+    assert.equal(lente.amendeForfaitaire, 135);
+  });
+
+  it('La limite exacte de 50 km/h relève du barème 135 €, 51 km/h du barème 68 €', () => {
+    assert.equal(calculateAmendeVitesse({ vitesseMesuree: 65, vitesseAutorisee: 51, typeRadar: 'fixe' }).amendeForfaitaire, 68);
+    assert.equal(calculateAmendeVitesse({ vitesseMesuree: 65, vitesseAutorisee: 50, typeRadar: 'fixe' }).amendeForfaitaire, 135);
+  });
+});
+
+describe('Délais de récupération des points', () => {
+  const retire = (excesVise: number) =>
+    calculateAmendeVitesse({ vitesseMesuree: 30 + excesVise + 5, vitesseAutorisee: 30, typeRadar: 'fixe' });
+
+  it('20-29, 30-39 et 40-49 km/h (4e classe) : 3 ans', () => {
+    for (const exces of [20, 29, 30, 39, 40, 49]) {
+      const res = retire(exces);
+      assert.equal(res.excesVitesse, exces);
+      assert.equal(res.classeContravention, 4);
+      assert.equal(res.delaiRecuperationPoints, '3 ans sans nouvelle infraction', `excès ${exces}`);
+    }
+  });
+
+  it('5-19 km/h : 6 mois ; délit : 3 ans', () => {
+    assert.match(retire(10).delaiRecuperationPoints, /^6 mois/);
+    assert.equal(retire(55).delaiRecuperationPoints, '3 ans sans nouvelle infraction');
   });
 });

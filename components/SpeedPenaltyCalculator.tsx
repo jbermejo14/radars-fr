@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useMemo, useState } from 'react';
-import { calculateAmendeVitesse, TypeRadar, TypeVoie } from '@/lib/amendes';
+import { calculateAmendeVitesse, TypeRadar } from '@/lib/amendes';
 import { AlertTriangle, CheckCircle, Info, ShieldAlert } from 'lucide-react';
 
 const COMMON_LIMITS = [30, 50, 70, 80, 90, 110, 130];
@@ -10,25 +10,14 @@ export function SpeedPenaltyCalculator() {
   const [vitesseMesuree, setVitesseMesuree] = useState<number>(138);
   const [vitesseAutorisee, setVitesseAutorisee] = useState<number>(130);
   const [typeRadar, setTypeRadar] = useState<TypeRadar>('fixe');
-  const [typeVoie, setTypeVoie] = useState<TypeVoie>('hors_agglo');
 
   const result = useMemo(() => {
     return calculateAmendeVitesse({
       vitesseMesuree,
       vitesseAutorisee,
       typeRadar,
-      typeVoie,
     });
-  }, [vitesseMesuree, vitesseAutorisee, typeRadar, typeVoie]);
-
-  const handleLimitClick = (limite: number) => {
-    setVitesseAutorisee(limite);
-    if (limite <= 50) {
-      setTypeVoie('agglo');
-    } else {
-      setTypeVoie('hors_agglo');
-    }
-  };
+  }, [vitesseMesuree, vitesseAutorisee, typeRadar]);
 
   return (
     <div className="card space-y-6">
@@ -86,7 +75,7 @@ export function SpeedPenaltyCalculator() {
                 <button
                   key={limit}
                   type="button"
-                  onClick={() => handleLimitClick(limit)}
+                  onClick={() => setVitesseAutorisee(limit)}
                   className={`px-3 py-1.5 rounded-lg text-xs font-bold font-mono transition-all ${
                     vitesseAutorisee === limit
                       ? 'bg-accent text-white shadow-sm'
@@ -129,35 +118,6 @@ export function SpeedPenaltyCalculator() {
                 <span className="block font-bold">Radar mobile</span>
                 <span className="text-[11px] text-muted">Voiture radar en mouvement (-10 km/h ou -10%)</span>
               </button>
-            </div>
-          </div>
-
-          {/* Type de voie */}
-          <div>
-            <label className="block text-xs font-bold text-fg mb-1.5">
-              Type de zone
-            </label>
-            <div className="grid grid-cols-2 gap-2 text-xs">
-              <label className="flex items-center gap-2 p-2 rounded-lg border border-line bg-surface cursor-pointer">
-                <input
-                  type="radio"
-                  name="typeVoie"
-                  checked={typeVoie === 'agglo'}
-                  onChange={() => setTypeVoie('agglo')}
-                  className="accent-accent"
-                />
-                <span className="text-secondary font-medium">En ville (≤ 50 km/h)</span>
-              </label>
-              <label className="flex items-center gap-2 p-2 rounded-lg border border-line bg-surface cursor-pointer">
-                <input
-                  type="radio"
-                  name="typeVoie"
-                  checked={typeVoie === 'hors_agglo'}
-                  onChange={() => setTypeVoie('hors_agglo')}
-                  className="accent-accent"
-                />
-                <span className="text-secondary font-medium">Hors agglomération / Autoroute</span>
-              </label>
             </div>
           </div>
         </div>

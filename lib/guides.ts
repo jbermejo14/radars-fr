@@ -22,14 +22,14 @@ export const GUIDES: GuideItem[] = [
     title: 'Barème des amendes et perte de points pour excès de vitesse (2026)',
     metaTitle: 'Amendes excès de vitesse 2026 : barème et points',
     metaDescription: 'Barème des amendes pour excès de vitesse selon le Code de la route : montants minoré, forfaitaire et majoré, et points retirés selon votre vitesse.',
-    summary: 'Le barème des sanctions pour excès de vitesse dépend de la vitesse retenue après déduction de la marge technique et de la limitation de vitesse autorisée (en agglomération ou hors agglomération).',
+    summary: 'Le barème des sanctions pour excès de vitesse dépend de la vitesse retenue après déduction de la marge technique et de la limitation de vitesse autorisée (supérieure à 50 km/h, ou de 50 km/h ou moins).',
     publishedDate: '2026-01-01',
     sections: [
       {
         heading: 'La réforme du 1er janvier 2024 (Décret n° 2023-1150)',
         content: [
           'Depuis le 1er janvier 2024, une réforme majeure s\'applique sur les routes françaises : les excès de vitesse inférieurs à 5 km/h (après déduction de la marge d\'erreur technique) n\'entraînent plus aucun retrait de point sur votre permis de conduire.',
-          'Attention : l\'amende financière reste en revanche intégralement due (68 € hors agglomération ou 135 € en agglomération). Dès que l\'excès atteint ou dépasse 5 km/h (entre 5 et 19 km/h), le retrait d\'un point continue de s\'appliquer.'
+          'Attention : l\'amende financière reste en revanche intégralement due (68 € si la limitation est supérieure à 50 km/h, 135 € si elle est de 50 km/h ou moins). Dès que l\'excès atteint ou dépasse 5 km/h (entre 5 et 19 km/h), le retrait d\'un point continue de s\'appliquer.'
         ]
       },
       {
@@ -51,7 +51,7 @@ export const GUIDES: GuideItem[] = [
     faq: [
       {
         q: 'Quel est le montant de l\'amende pour un excès de vitesse de moins de 20 km/h ?',
-        a: 'L\'amende est de 68 € (minorée à 45 €) si la route est limitée à plus de 50 km/h. Elle est de 135 € (minorée à 90 €) si la vitesse autorisée est inférieure ou égale à 50 km/h (en ville ou agglomération).'
+        a: 'L\'amende est de 68 € (minorée à 45 €) si la route est limitée à plus de 50 km/h. Elle est de 135 € (minorée à 90 €) si la vitesse autorisée est inférieure ou égale à 50 km/h.'
       },
       {
         q: 'Quand le retrait de points devient-il effectif sur le permis ?',
@@ -71,7 +71,7 @@ export const GUIDES: GuideItem[] = [
         heading: 'Délais de récupération automatique de plein droit',
         content: [
           'Le Code de la route prévoit plusieurs délais stricts sans commettre de nouvelle infraction pour récupérer automatiquement des points :',
-          '• Délai de 6 mois : Pour la perte d\'un seul point (excès de 5 à 19 km/h, chevauchement de ligne continue). Le point est restitué au bout de 6 mois sans aucune autre infraction.\n• Délai de 2 ans : Si vous avez commis des contraventions de 2e ou 3e classe (ex: excès < 20 km/h hors agglo). Votre capital remonte à 12 points après 2 ans sans infraction.\n• Délai de 3 ans : Si vous avez commis une contravention de classe 4 ou 5 (téléphone en main, feu rouge, excès >= 20 km/h). Il faut 3 ans sans infraction pour retrouver 12 points.\n• Règle des 10 ans : Les points perdus pour des contraventions sont automatiquement réattribués 10 ans après l\'infraction, même si vous en avez commis d\'autres entre-temps.'
+          '• Délai de 6 mois : Pour la perte d\'un seul point (excès de 5 à 19 km/h, chevauchement de ligne continue). Le point est restitué au bout de 6 mois sans aucune autre infraction.\n• Délai de 2 ans : Si vous avez commis des contraventions de 2e ou 3e classe (ex : changement de direction sans clignotant). Votre capital remonte à 12 points après 2 ans sans infraction.\n• Délai de 3 ans : Si vous avez commis une contravention de classe 4 ou 5 (téléphone en main, feu rouge, excès >= 20 km/h). Il faut 3 ans sans infraction pour retrouver 12 points.\n• Règle des 10 ans : Les points perdus pour des contraventions sont automatiquement réattribués 10 ans après l\'infraction, même si vous en avez commis d\'autres entre-temps.'
         ]
       },
       {

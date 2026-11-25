@@ -8,7 +8,7 @@ import { GUIDES } from '@/lib/guides';
 const FAQ_ITEMS = [
   {
     q: "Perd-on encore un point pour un excès de vitesse de moins de 5 km/h ?",
-    a: "Non ! Depuis le 1er janvier 2024 (Décret n° 2023-1150), les excès de vitesse de moins de 5 km/h par rapport à la vitesse autorisée n'entraînent plus aucun retrait de point sur votre permis de conduire. En revanche, l'amende forfaitaire reste exigible (68 € hors agglomération ou 135 € en agglomération).",
+    a: "Non ! Depuis le 1er janvier 2024 (Décret n° 2023-1150), les excès de vitesse de moins de 5 km/h par rapport à la vitesse autorisée n'entraînent plus aucun retrait de point sur votre permis de conduire. En revanche, l'amende forfaitaire reste exigible (68 € si la limitation est supérieure à 50 km/h, 135 € si elle est de 50 km/h ou moins).",
   },
   {
     q: "Comment fonctionne la marge technique d'erreur d'un radar ?",
