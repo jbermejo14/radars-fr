@@ -1,6 +1,6 @@
 # Radars & Amendes France 2026 — Ododex (`/fr/radars`)
 
-Carte interactive des 3 350 radars automatiques officiels en France et simulateur officiel de perte de points et du montant des amendes pour excès de vitesse (Code de la route 2026).
+Carte interactive des 3 350 radars automatiques en France et simulateur de perte de points et du montant des amendes pour excès de vitesse (Code de la route 2026).
 
 - **URL en production** : [https://ododex.com/fr/radars](https://ododex.com/fr/radars)
 - **Worker Cloudflare** : `ododex-radars`
